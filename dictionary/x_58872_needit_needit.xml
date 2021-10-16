@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Additional comments" max_length="40" name="u_additional_comments" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other" type="string"/>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Requested for email" mandatory="true" max_length="40" name="u_requested_for_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Requested type" mandatory="true" max_length="40" name="u_requested_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Human resources" sequence="0" value="hr"/>
+                <element inactive_on_update="false" label="Facielities" sequence="1" value="facielities"/>
+                <element inactive_on_update="false" label="Legal" sequence="2" value="legal"/>
+                <element inactive_on_update="false" label="Your department choise" sequence="3" value="your_choise"/>
+            </choice>
+        </element>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
             <choice>
                 <element inactive_on_update="false" label="Legal" sequence="0" value="legal"/>
@@ -10,6 +19,10 @@
                 <element inactive_on_update="false" label="Human Resources" sequence="2" value="hr"/>
             </choice>
         </element>
+        <element attributes="edge_encryption_enabled=true" label="Shtort description" max_length="125" name="u_string_1" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="300" name="u_string_2" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Work notes" max_length="300" name="u_string_3" type="string"/>
+        <element attributes="edge_encryption_enabled=true" dependent="number" dependent_on_field="number" label="Number" max_length="40" name="u_string_4" type="string" use_dependent_field="true"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="hr1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
             <choice>
                 <element inactive_on_update="false" label="Legal 1" sequence="0" value="legal1"/>
@@ -22,5 +35,6 @@
             </choice>
         </element>
         <element label="When needed" mandatory="true" max_length="40" name="u_when_needed" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Work notes" max_length="40" name="u_work_notes" type="string"/>
     </element>
 </database>
